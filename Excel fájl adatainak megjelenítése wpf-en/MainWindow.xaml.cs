@@ -1,0 +1,42 @@
+﻿using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using IronXL;
+using System.Linq;
+
+namespace WpfApp1
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            IronXL.License.LicenseKey = "IRONSUITE.ZADORT.KKSZKI.HU.26764-DEC9CFA078-BDGVTOX-4S5W2SYZ734V-62QGSBQ5THZG-6BDGF57AKERJ-TSTE7QBH7XX7-RWNJ33MXTHMJ-H32SW3PB4RO6-22Q4SD-TWTCQIBBCJ2NUA-DEPLOYMENT.TRIAL-NM5PSK.TRIAL.EXPIRES.13.OCT.2024";
+
+            WorkBook workBook = WorkBook.Load("mintainput.xlsx");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+
+            foreach (var cell in workSheet["A1:B2"])
+            {   
+                ExcelValuesList.Items.Add($"A(z) {cell.AddressString} cella értéke: {cell.Text}");
+            }
+
+            decimal sum = workSheet["A1:B2"].Sum();
+            decimal max = workSheet["A1:B2"].Max(c => c.DecimalValue);
+
+            SumTextBlock.Text = sum.ToString();
+            MaxTextBlock.Text = max.ToString();
+        }
+    }
+}
