@@ -1,0 +1,13 @@
+MainWindow.xaml
+- StackPanel tag-et használtam a jobb és rendezettebb szövegekhez.
+- Minden StackPanel elemhez horizontális orientációt és 10 pixel egységnyi margó attribútomut
+fűztem hozzá szintén a rendezetebbség és átláthatóbbság céljából.
+- ListBox tag-et használtam a cella értékek kiíratásához mert egy összefüggő adatsokaságról beszélünk.
+- A Listbox tag-hez excelLista néven hivatkoztam amit majd a főprogramon keresztül fogok elérni.
+- Minden szekcióban 2 TextBlock tag található
+	- Az 1. TextBlock az adott kérés eredményét várja míg a 2. TextBlock a program által bekért Excel fájl
+		értékét kapja
+
+MainWindow.xaml.cs
+- //[MainWindow.xaml.cs]
+
