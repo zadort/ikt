@@ -8,14 +8,14 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <ListBox Name="ExcelValuesList" Height="100" Margin="10"/>
+            <ListBox Name="excelLista" Height="100" Margin="10"/>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock FontWeight="Bold" Text="Értékek összege: "/>
-                <TextBlock Name="SumTextBlock"/>
+                <TextBlock Name="sumTextBlock"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock FontWeight="Bold" Text="Legnagyobb érték: " VerticalAlignment="Center"/>
-                <TextBlock Name="MaxTextBlock" VerticalAlignment="Center"/>
+                <TextBlock Name="maxTextBlock" VerticalAlignment="Center"/>
             </StackPanel>
         </StackPanel>
     </Grid>
