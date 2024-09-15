@@ -1,0 +1,69 @@
+﻿using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using IronXL;
+using IronXL.Styles;
+
+namespace WpfApp2
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            //Licenszkulcs az IronXL Package használatához
+            License.LicenseKey = "IRONSUITE.ZADORT.KKSZKI.HU.26764-DEC9CFA078-BDGVTOX-4S5W2SYZ734V-62QGSBQ5THZG-6BDGF57AKERJ-TSTE7QBH7XX7-RWNJ33MXTHMJ-H32SW3PB4RO6-22Q4SD-TWTCQIBBCJ2NUA-DEPLOYMENT.TRIAL-NM5PSK.TRIAL.EXPIRES.13.OCT.2024";
+        }
+
+        private void Letrehoz_Click(object sender, RoutedEventArgs e)
+        {
+            WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
+            var workSheet = workBook.CreateWorkSheet("example_sheet");
+            workSheet["A1"].Value = "A";
+            workSheet["B1"].Value = "programot";
+            workSheet["C1"].Value = "Zádor";
+            workSheet["D1"].Value = "Tamás";
+            workSheet["E1"].Value = "készítette!";
+
+            //Extra
+            #region Betű
+            workSheet["A1:E1"].Style.Font.Name = "Times New Roman";
+            workSheet["A1:E1"].Style.Font.Height = 9;
+            workSheet["A1:E1"].Style.BackgroundColor = "#000000";
+            workSheet["A1:E1"].Style.Font.Color = "#FFFFFF";
+            workSheet["A1:E1"].Style.Font.Bold = true;
+            workSheet["A1:E1"].Style.Font.Italic = false;
+            #endregion
+
+            //Mentés
+            workBook.SaveAs("feladat.xlsx");
+        }
+
+        private void Betolt_Click(object sender, RoutedEventArgs e)
+        {
+            WorkBook workBook = WorkBook.Load("feladat.xlsx");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+
+            //Szűrő kódsor ami kiválasztja az üres cellákat
+            var cellak = workSheet.Where(cell => !string.IsNullOrEmpty(cell.Text));
+
+            //A1-es cellától a B2-ig végigfut majd hozzáad egy sor szöveget
+            //ami tartalmazza a cella nevét és értékét
+            foreach (var cell in cellak)
+            {
+                ExcelLista.Items.Add($"A(z) {cell.AddressString} cella értéke: {cell.Text}");
+            }
+        }
+    }
+}
