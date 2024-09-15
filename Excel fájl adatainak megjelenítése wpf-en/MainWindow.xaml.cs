@@ -33,7 +33,7 @@ namespace WpfApp1
             //ami tartalmazza a cella nevét és értékét
             foreach (var cell in workSheet["A1:B2"])
             {   
-                excelLista.Items.Add($"A(z) {cell.AddressString} cella értéke: {cell.Text}");
+                ExcelLista.Items.Add($"A(z) {cell.AddressString} cella értéke: {cell.Text}");
             }
 
             //Sum() metódus a cella összértékeinek meghatározásához
@@ -41,8 +41,8 @@ namespace WpfApp1
             decimal max = workSheet["A1:B2"].Max(c => c.DecimalValue);
 
             //Értékek szöveggé alakítása
-            sumTextBlock.Text = sum.ToString();
-            maxTextBlock.Text = max.ToString();
+            SumTextBlock.Text = sum.ToString();
+            MaxTextBlock.Text = max.ToString();
         }
     }
 }
