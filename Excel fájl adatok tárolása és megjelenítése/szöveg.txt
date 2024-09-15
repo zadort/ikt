@@ -1,0 +1,5 @@
+-pip install pandas openpyxl commandot kell használni hogy lehessen adatokat tárolni
+-a program addig fut amíg üresen nem hagyjuk a név mezőt
+-aztán eltároltam a nevet meg a kort
+-létrehoztam egy excel file-t adatok.xlsx néven
+-majd eltároltam benne az adatokat
