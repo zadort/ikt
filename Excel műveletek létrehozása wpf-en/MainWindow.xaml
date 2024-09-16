@@ -9,21 +9,26 @@
     <Grid>
         <StackPanel>
             <ListBox Name="ExcelLista" Height="100" Margin="10"/>
-            <StackPanel Margin="10" Width="205" HorizontalAlignment="Left">
-                <Label FontWeight="Bold" HorizontalAlignment="Center">Fontos</Label>
-            <Button Width="200" HorizontalAlignment="Left" Height="30" Margin="1" x:Name="Letrehoz" Click="Letrehoz_Click">Excel dokumentum létrehozása</Button>
-                <Button Width="200" HorizontalAlignment="Left" Height="30" Margin="1" x:Name="Betolt" Click="Betolt_Click">Excel dokumentum betöltése</Button>
+            <StackPanel Margin="10" HorizontalAlignment="Left" Width="400">
+                <Label FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Fontos</Label>
+                <Button FontSize="20" Width="300" Height="30" Margin="1" x:Name="Letrehoz" Click="Letrehoz_Click">Excel dokumentum létrehozása</Button>
+                <Button FontSize="20" Width="300" Height="30" Margin="1" x:Name="Betolt" Click="Betolt_Click">Excel dokumentum betöltése</Button>
             </StackPanel>
-            <StackPanel Margin="10" HorizontalAlignment="Left">
-                <Label FontWeight="Bold" HorizontalAlignment="Center">Betű</Label>
-                <Button Width="200" Height="30" Margin="1" x:Name="BetuSzin" Click="BetuSzin_Click">Betű színének módosítása</Button>
-                <Button Width="200" Height="30" Margin="1" x:Name="BetuSzinHatter" Click="BetuSzinHatter_Click">Betű hátterének megváltoztatása</Button>
-                <Button Width="200" Height="30" Margin="1" x:Name="BetuMeret" Click="BetuMeret_Click">Betű méretének módosítása</Button>
-                <Button Width="200" Height="30" Margin="1" x:Name="BetuStilus" Click="BetuStilus_Click">Betű stílusának megváltoztatása</Button>
-                <Button Width="200" Height="30" Margin="1" x:Name="Felkover" Click="Felkover_Click">Félkövér</Button>
-                <Button Width="200" Height="30" Margin="1" x:Name="Dolt" Click="Dolt_Click">Dőlt</Button>
+            <StackPanel Margin="10" HorizontalAlignment="Left" Width="400">
+                <Label FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Betű</Label>
+                <Button FontSize="20" Width="300" Height="30" Margin="1" x:Name="BetuSzin" Click="BetuSzin_Click">Betű színének módosítása</Button>
+                <Button FontSize="20" Width="300" Height="30" Margin="1" x:Name="BetuSzinHatter" Click="BetuSzinHatter_Click">Betű hátterének megváltoztatása</Button>
+                <Button FontSize="20" Width="300" Height="30" Margin="1" x:Name="BetuMeret" Click="BetuMeret_Click">Betű méretének módosítása</Button>
+                <Button FontSize="20" Width="300" Height="30" Margin="1" x:Name="BetuStilus" Click="BetuStilus_Click">Betű stílusának megváltoztatása</Button>
+                <Button FontSize="20" Width="300" Height="30" Margin="1" x:Name="Felkover" Click="Felkover_Click">Félkövér</Button>
+                <Button FontSize="20" Width="300" Height="30" Margin="1" x:Name="Dolt" Click="Dolt_Click">Dőlt</Button>
+            </StackPanel>
+            <StackPanel>
+                <Label FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Cella</Label>
+                <Button FontSize="20" Width="300" Height="30" Margin="1" x:Name="CellaTorol" Click="CellaTorol_Click">Cella törlése</Button>
+                <Button FontSize="20" Width="300" Height="30" Margin="1" x:Name="CellaRendez" Click="CellaRendez_Click">Cella rendezése ABC sorrendben</Button>
+                <Button FontSize="20" Width="300" Height="30" Margin="1" x:Name="CellaMasol" Click="CellaMasol_Click">Cella másolása</Button>
             </StackPanel>
         </StackPanel>
-        
     </Grid>
 </Window>

@@ -102,17 +102,6 @@ namespace WpfApp2
             workBook.SaveAs("feladat.xlsx");
         }
 
-        private void CellaTorol_Click(object sender, RoutedEventArgs e)
-        {
-            WorkBook workBook = WorkBook.Load("feladat.xlsx");
-            WorkSheet workSheet = workBook.WorkSheets.First();
-
-            workSheet["A1"].ClearContents();
-
-            MessageBox.Show("Az Excel dokumentum sikeresen módosítva!");
-            workBook.SaveAs("feladat.xlsx");
-        }
-
         private void Felkover_Click(object sender, RoutedEventArgs e)
         {
             WorkBook workBook = WorkBook.Load("feladat.xlsx");
@@ -130,6 +119,39 @@ namespace WpfApp2
             WorkSheet workSheet = workBook.WorkSheets.First();
 
             workSheet["A1:E1"].Style.Font.Italic = true;
+
+            MessageBox.Show("Az Excel dokumentum sikeresen módosítva!");
+            workBook.SaveAs("feladat.xlsx");
+        }
+        private void CellaTorol_Click(object sender, RoutedEventArgs e)
+        {
+            WorkBook workBook = WorkBook.Load("feladat.xlsx");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+
+            workSheet["A1"].ClearContents();
+
+            MessageBox.Show("Az Excel dokumentum sikeresen módosítva!");
+            workBook.SaveAs("feladat.xlsx");
+        }
+
+        private void CellaRendez_Click(object sender, RoutedEventArgs e)
+        {
+            WorkBook workBook = WorkBook.Load("feladat.xlsx");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+
+            var column = workSheet.GetColumn(0);
+            column.SortAscending();
+
+            MessageBox.Show("Az Excel dokumentum sikeresen módosítva!");
+            workBook.SaveAs("feladat.xlsx");
+        }
+
+        private void CellaMasol_Click(object sender, RoutedEventArgs e)
+        {
+            WorkBook workBook = WorkBook.Load("feladat.xlsx");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+
+            workSheet["A1"].Copy(workBook.WorkSheets.First(), "A2");
 
             MessageBox.Show("Az Excel dokumentum sikeresen módosítva!");
             workBook.SaveAs("feladat.xlsx");
