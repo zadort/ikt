@@ -36,18 +36,10 @@ namespace WpfApp2
             workSheet["D1"].Value = "Tamás";
             workSheet["E1"].Value = "készítette!";
 
-            //Extra
-            #region Betű
-            workSheet["A1:E1"].Style.Font.Name = "Times New Roman";
-            workSheet["A1:E1"].Style.Font.Height = 9;
-            workSheet["A1:E1"].Style.BackgroundColor = "#000000";
-            workSheet["A1:E1"].Style.Font.Color = "#FFFFFF";
-            workSheet["A1:E1"].Style.Font.Bold = true;
-            workSheet["A1:E1"].Style.Font.Italic = false;
-            #endregion
-
             //Mentés
             workBook.SaveAs("feladat.xlsx");
+
+            MessageBox.Show("Az Excel dokumentum sikeresen létrehozva!");
         }
 
         private void Betolt_Click(object sender, RoutedEventArgs e)
@@ -64,6 +56,83 @@ namespace WpfApp2
             {
                 ExcelLista.Items.Add($"A(z) {cell.AddressString} cella értéke: {cell.Text}");
             }
+        }
+
+        private void BetuSzin_Click(object sender, RoutedEventArgs e)
+        {
+            WorkBook workBook = WorkBook.Load("feladat.xlsx");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+
+            workSheet["A1:E1"].Style.Font.Color = "#FFFFFF";
+
+            MessageBox.Show("Az Excel dokumentum sikeresen módosítva!");
+            workBook.SaveAs("feladat.xlsx");
+        }
+
+        private void BetuSzinHatter_Click(object sender, RoutedEventArgs e)
+        {
+            WorkBook workBook = WorkBook.Load("feladat.xlsx");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+
+            workSheet["A1:E1"].Style.BackgroundColor = "#000000";
+
+            MessageBox.Show("Az Excel dokumentum sikeresen módosítva!");
+            workBook.SaveAs("feladat.xlsx");
+        }
+
+        private void BetuMeret_Click(object sender, RoutedEventArgs e)
+        {
+            WorkBook workBook = WorkBook.Load("feladat.xlsx");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+
+            workSheet["A1:E1"].Style.Font.Height = 9;
+
+            MessageBox.Show("Az Excel dokumentum sikeresen módosítva!");
+            workBook.SaveAs("feladat.xlsx");
+        }
+
+        private void BetuStilus_Click(object sender, RoutedEventArgs e)
+        {
+            WorkBook workBook = WorkBook.Load("feladat.xlsx");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+
+            workSheet["A1:E1"].Style.Font.Name = "Times New Roman";
+
+            MessageBox.Show("Az Excel dokumentum sikeresen módosítva!");
+            workBook.SaveAs("feladat.xlsx");
+        }
+
+        private void CellaTorol_Click(object sender, RoutedEventArgs e)
+        {
+            WorkBook workBook = WorkBook.Load("feladat.xlsx");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+
+            workSheet["A1"].ClearContents();
+
+            MessageBox.Show("Az Excel dokumentum sikeresen módosítva!");
+            workBook.SaveAs("feladat.xlsx");
+        }
+
+        private void Felkover_Click(object sender, RoutedEventArgs e)
+        {
+            WorkBook workBook = WorkBook.Load("feladat.xlsx");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+
+            workSheet["A1:E1"].Style.Font.Bold = true;
+
+            MessageBox.Show("Az Excel dokumentum sikeresen módosítva!");
+            workBook.SaveAs("feladat.xlsx");
+        }
+
+        private void Dolt_Click(object sender, RoutedEventArgs e)
+        {
+            WorkBook workBook = WorkBook.Load("feladat.xlsx");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+
+            workSheet["A1:E1"].Style.Font.Italic = true;
+
+            MessageBox.Show("Az Excel dokumentum sikeresen módosítva!");
+            workBook.SaveAs("feladat.xlsx");
         }
     }
 }
